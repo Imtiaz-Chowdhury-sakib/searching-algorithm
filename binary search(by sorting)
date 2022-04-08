@@ -1,13 +1,13 @@
-#include<bits/stdc++.h>
-using namespace std;
+  #include<iostream>
+  using namespace std;
 
-void insertionSort(int arr[], int n)
+    // For sorting the array value
+    void insertionSort(int arr[], int n)
 {
     int i,j,key;
-    for(i=1; i<n; i++)
-    {
+    for(i=1; i<n; i++){
         key = arr[i];
-        j= i-1;
+        j = i-1;
 
         while(arr[j]>key && j>=0){
             arr[j+1]=arr[j];
@@ -17,28 +17,60 @@ void insertionSort(int arr[], int n)
     }
 }
 
-int search(int arr[],int n,int x)
-{
-   for(int i=0; i<n; i++){
-       if(arr[i]==x)
-           return i;
-   } 
-   return -1;
-   
-}
 
-int main()
-{
-    int arr[]={10,60,30,50,40,20};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    int x=30;
-    
-    insertionSort(arr, n);
-    int result = search(arr,  n , x);
-    if(result == -1)
-       cout<<"Value not found: "<<endl;
+//     //Binary Search Function------------------
+//     int binary_Search(int arr[], int n, int skey)
+// {
+//     int low = 0, high = n-1;
+//     int mid;
 
-    else
-       cout<<"Value found at index: "<<result<<endl;
+//     while(low<=high)
+//     {
+//         mid = (low+high)/2;
+//         if(arr[mid] == skey) return mid;
+//         else if(skey>arr[mid]) low = mid+1;
+//         else high = mid-1;
+//     }
 
-}
+//     return -1;
+// }
+
+
+        // // Binary Search Function Iteration
+
+        // int binary_search_recursion(int arr[], int low, int high, int skey)
+        // {   
+        //     int mid;
+        //     while(low<=high){
+        //         mid = (low+high)/2;
+        //         if(arr[mid]==skey) return mid;
+        //         else if(skey>arr[mid]) return binary_search_recursion(arr, mid+1, high, skey);
+        //         else return binary_search_recursion(arr, low, mid-1, skey);
+
+        //     }
+        //     return -1;
+        // }
+
+
+
+
+  int main()
+  {     
+        int x;
+        int arr[] = {9,89,34,5,60,20};
+        int n= sizeof(arr)/ sizeof(arr[0]);
+        insertionSort(arr,n);
+        cout<<"Enter value to search: "<<endl;
+        cin >>  x;
+       
+        
+        int result = binary_search_recursion(arr, 0 , n-1, x);
+        if(result == -1){
+            cout<<"Value not found" <<endl;
+
+        }
+        else 
+            cout<< "Value found at index: "<<result<<endl;
+
+
+  }
